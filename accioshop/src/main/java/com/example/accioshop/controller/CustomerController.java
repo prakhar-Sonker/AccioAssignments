@@ -1,6 +1,8 @@
 package com.example.accioshop.controller;
 
 
+import com.example.accioshop.dto.request.CustomerRequest;
+import com.example.accioshop.dto.response.CustomerResponse;
 import com.example.accioshop.exceptions.CustomerNotFound;
 import com.example.accioshop.exceptions.ReviewsNotFound;
 import com.example.accioshop.model.Customer;
@@ -21,10 +23,10 @@ public class CustomerController {
     CustomerService customerService;
 //    Add customer
     @PostMapping
-    public ResponseEntity addCustomer(@RequestBody Customer customer){
-        log.info("Recieved Customer object: {}", customer);
-        Customer savedCustomer = customerService.addCustomer(customer);
-        return new ResponseEntity(savedCustomer, HttpStatus.CREATED);
+    public ResponseEntity addCustomer(@RequestBody CustomerRequest customerRequest){
+        log.info("Recieved Customer object: {}", customerRequest);
+        CustomerResponse customerResponse = customerService.addCustomer(customerRequest);
+        return new ResponseEntity(customerResponse, HttpStatus.CREATED);
     }
 
 //    get the details of customer based on id
