@@ -11,6 +11,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -42,8 +43,9 @@ public class Customer {
     @Column(length = 10)
     private String mobNo;
 
+    @Column
     @CreationTimestamp
-    LocalDate createdAt;
+    Date createdAt;
 
 //    add review list
 @OneToMany(mappedBy = "customer")

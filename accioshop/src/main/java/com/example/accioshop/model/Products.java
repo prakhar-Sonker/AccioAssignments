@@ -2,22 +2,28 @@ package com.example.accioshop.model;
 
 import com.example.accioshop.enums.ProductCategory;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Builder
 public class Products {
 
-    @Column
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column
     private String name;
 
     @Column
-    private double price;
+    private int price;
 
     @Column
     @Enumerated(value = EnumType.STRING)

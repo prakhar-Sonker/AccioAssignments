@@ -1,6 +1,8 @@
 package com.example.accioshop.controller;
 
 
+import com.example.accioshop.dto.request.SellerRequest;
+import com.example.accioshop.dto.response.SellerResponse;
 import com.example.accioshop.exceptions.SellerNotFound;
 import com.example.accioshop.model.Seller;
 import com.example.accioshop.service.SellerService;
@@ -22,10 +24,10 @@ public class SellerController {
 
 //    write an api to add seller
     @PostMapping
-    public ResponseEntity addSeller(@RequestBody Seller seller){
-        log.info("Recieved Seller object: {}", seller);
-        Seller savedSeller = sellerService.addSeller(seller);
-        return new ResponseEntity(savedSeller, HttpStatus.CREATED);
+    public ResponseEntity addSeller(@RequestBody SellerRequest sellerRequest){
+        log.info("Recieved Seller object: {}", sellerRequest);
+        SellerResponse response = sellerService.addSeller(sellerRequest);
+        return new ResponseEntity(response, HttpStatus.CREATED);
     }
 
 //    write an api to find seller by id

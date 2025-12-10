@@ -1,22 +1,21 @@
-package com.example.accioshop.dto.response;
+package com.example.accioshop.dto.request;
 
+import jdk.jfr.Category;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
-
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-
-public class CustomerResponse {
+public class ProductRequest {
 
     private String name;
-    private String email;
-//    private String message;
-    private Date createdAt;
+
+    private int price;
+
+    private Category category;
+
 }
